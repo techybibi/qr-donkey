@@ -30,7 +30,13 @@
       rel="stylesheet"
     />
 
-    <!-- Icons. Uncomment required icon fonts -->
+      <!-- Data Table -->
+      <link rel="stylesheet" href="http://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+      <script src="http://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+      <script src="https://cdn.ckeditor.com/4.19.1/standard/ckeditor.js"></script>
+
+      <!-- Icons. Uncomment required icon fonts -->
     <link rel="stylesheet" href="{{asset('vendor/fonts/boxicons.css')}}" />
 
     <!-- Core CSS -->
@@ -80,7 +86,7 @@
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Contact</span></li>
             <!-- Forms -->
             <li class="menu-item {{ request()->is('contacts/*','contacts') ? 'active' : '' }}">
-                <a href="{{ route('contacts') }}" class="menu-link">
+                <a href="{{ route('qr') }}" class="menu-link">
                   <i class="menu-icon tf-icons bx bx-collection"></i>
                   <div data-i18n="Basic">Contacts</div>
                 </a>

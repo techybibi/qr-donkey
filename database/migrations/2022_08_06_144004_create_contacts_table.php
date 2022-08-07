@@ -17,14 +17,17 @@ class CreateContactsTable extends Migration
             $table->id();
             $table->string('unique_id')->unique();
             $table->string('name')->nullable();
+            $table->string('designation')->nullable();
             $table->string('image')->nullable();
             $table->string('company')->nullable();
+            $table->string('email')->nullable();
             $table->string('phone_1')->nullable();
             $table->string('phone_2')->nullable();
             $table->string('website_link')->nullable();
             $table->string('google_map_link')->nullable();
             $table->string('address')->nullable();
             $table->boolean('is_redirect')->default(0);
+            $table->string('qr');
             $table->timestamps();
         });
     }

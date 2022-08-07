@@ -23,10 +23,16 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware('auth')->group(function(){
     Route::get('profile',[ProfileController::class,'userProfile'])->name('admin.profile');
     Route::post('update-profile',[ProfileController::class,'userUpdate'])->name('update.profile');
-    Route::get('/contacts',[App\Http\Controllers\ContactController::class,'index'])->name('contacts');
-    Route::get('/contacts/create',[App\Http\Controllers\ContactController::class,'create'])->name('contacts.create');
-    Route::post('/contacts/store',[App\Http\Controllers\ContactController::class,'store'])->name('contacts.store');
-    Route::get('/contacts/edit/{id}',[App\Http\Controllers\ContactController::class,'edit'])->name('contacts.edit');
-    Route::post('/contacts/update/{id}',[App\Http\Controllers\ContactController::class,'update'])->name('contacts.update');
-    Route::get('/contacts/delete/{id}',[App\Http\Controllers\ContactController::class,'destroy'])->name('contacts.delete');
+    Route::get('/qr',[App\Http\Controllers\QrController::class,'index'])->name('qr');
+    Route::get('/qr/create',[App\Http\Controllers\QrController::class,'create'])->name('qr.create');
+    Route::post('/qr/store',[App\Http\Controllers\QrController::class,'store'])->name('qr.store');
+    Route::get('/qr/edit/{id}',[App\Http\Controllers\QrController::class,'edit'])->name('qr.edit');
+    Route::post('/qr/update/{id}',[App\Http\Controllers\QrController::class,'update'])->name('qr.update');
+    Route::get('/qr/delete/{id}',[App\Http\Controllers\QrController::class,'destroy'])->name('qr.delete');
 });
+
+
+Route::get('/scan/{unique_id}',[App\Http\Controllers\QrController::class,'show'])->name('qr.show');
+
+Route::get('/vc_gen',[App\Http\Controllers\VcController::class,'vcGenerate'])->name('vc.generate');
+

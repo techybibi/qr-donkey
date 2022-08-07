@@ -8,13 +8,13 @@
       <div class="col-xl">
         <div class="card mb-4">
           <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Create Contact</h5>
+            <h5 class="mb-0">Create QR</h5>
           </div>
             @if(session()->has('message'))
               <div class="alert alert-success text-center" role="alert"> {{ session()->get('message') }}</div>
             @endif
           <div class="card-body">
-            <form action="{{ route('contacts.store') }}" method="POST" id="form_id" enctype="multipart/form-data">
+            <form action="{{ route('qr.store') }}" method="POST" id="form_id" enctype="multipart/form-data">
                 @csrf
               <div class="mb-3">
                 <label class="form-label" for="name">Name</label>
@@ -25,6 +25,15 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
               </div>
+                <div class="mb-3">
+                    <label class="form-label" for="name">Designation</label>
+                    <div class="input-group input-group-merge">
+                        <input type="text" class="form-control" name="designation" id="designation" aria-describedby="basic-icon-default-name" required>
+                    </div>
+                    @error('designation')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
               <div class="mb-3">
                 <label class="form-label" for="basic-icon-default-email">Image</label>
                 <div class="input-group input-group-merge">
@@ -44,6 +53,15 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
               </div>
+                <div class="mb-3">
+                    <label class="form-label" for="company">Email</label>
+                    <div class="input-group input-group-merge">
+                        <input type="text" class="form-control" name="email" id="email" >
+                    </div>
+                    @error('email')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
               <div class="mb-3">
                 <label class="form-label" for="phone1">Phone 1</label>
                 <div class="input-group input-group-merge">
@@ -116,4 +134,9 @@
       </div>
     </div>
   </div>
+
+<script>
+    CKEDITOR.replace( 'address' );
+</script>
+
 @endsection
