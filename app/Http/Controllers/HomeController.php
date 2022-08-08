@@ -24,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return Redirect::to('https://barakbusinesses.com');
+        return \redirect()->route('qr');
     }
 }
